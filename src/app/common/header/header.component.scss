@@ -1,0 +1,9 @@
+.headerWrapper{
+  mat-toolbar{
+    display: flex;
+    justify-content: space-between;
+    .homeLink{
+      cursor: pointer;
+    }
+  }
+}

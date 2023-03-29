@@ -1,0 +1,23 @@
+<div class="pageContent">
+    <mat-card class="loginCard">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-card-content>
+                <div class="form-feild">
+                    <input autofocus type="text" placeholder="Enter Email" formControlName="email">
+                </div>
+                <div class="form-feild">
+                    <input type="password" placeholder="Enter Password" formControlName="password">
+                </div>
+                <div class="form-feild" *ngIf="isRegistration">
+                    <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+                </div>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-raised-button type="submit" color="primary">{{ isRegistration ? 'Register' : 'Login'}}</button>
+                <p *ngIf="!isRegistration">Dont' have an account ? Click here to <span (click)="onLoginTypeChange()">Register.</span></p>
+                <p *ngIf="isRegistration">Already have an account ? Click here to <span (click)="onLoginTypeChange()">Login.</span></p>
+            </mat-card-actions>
+        </form>
+        
+    </mat-card>
+</div>

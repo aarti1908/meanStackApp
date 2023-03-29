@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { CommonComponentModule } from '../common/common.module';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatComponentModule } from '../common/common.module';
 
 const routes: Routes = [
   {
@@ -16,8 +15,7 @@ const routes: Routes = [
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
-    CommonComponentModule,
-    MatGridListModule,
+    MatComponentModule,
     RouterModule.forChild(routes)
   ]
 })

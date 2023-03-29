@@ -1,17 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Subject } from "rxjs";
 
-import { User } from './models/user.model'
+import { User } from '../models/user.model'
 
-@Injectable({ providedIn: "root" })
+@Injectable()
 export class UsersService {
   private users: User[] = [];
 
   constructor(private http: HttpClient) {}
 
   fetchUsers() {
-    return this.http.get<{ message: string; users: User[] }>("http://localhost:8000/api/users");
+    return this.http.get<{users : User[]}>("http://localhost:8000/api/users") || [];
   }
 
   addUser(fullName: string, email: string) {

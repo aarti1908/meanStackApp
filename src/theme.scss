@@ -1,0 +1,82 @@
+@import '@angular/material/theming';
+@import './fonts.scss';
+@include mat-core();
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-mcgpalette0: (
+    50 : #fcf3f3,
+    100 : #f9e0e0,
+    200 : #f5cccc,
+    300 : #f0b8b8,
+    400 : #eda8a8,
+    500 : #ea9999,
+    600 : #e79191,
+    700 : #e48686,
+    800 : #e17c7c,
+    900 : #db6b6b,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffeaea,
+    A700 : #ffd0d0,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-mcgpalette1: (
+    50 : #fdeae5,
+    100 : #fbcbbd,
+    200 : #f8a891,
+    300 : #f58565,
+    400 : #f26a44,
+    500 : #f05023,
+    600 : #ee491f,
+    700 : #ec401a,
+    800 : #e93715,
+    900 : #e5270c,
+    A100 : #ffffff,
+    A200 : #ffdfdc,
+    A400 : #ffb1a9,
+    A700 : #ff9a90,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$my-app-primary: mat-palette($md-mcgpalette0,A200, A100, A400);
+$my-app-accent:  mat-palette($md-mcgpalette0);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent);
+
+@include angular-material-theme($my-app-theme);
+
+
+@include mat-base-typography($custom-typography);
+@include angular-material-typography($custom-typography);

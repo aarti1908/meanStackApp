@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+
+.loginCard{
+    width: 50%;
+    margin: 50px auto;
+    background-color: mat-color($secondary);
+    mat-card-actions{
+        display: flex;
+        flex-direction: column;
+        button{
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            margin: 20px 0;
+            width: 100%;
+            font-size: 30px;        
+        }
+        p{
+            font-size: 24px;
+            span{
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+    .form-feild{
+        width: 100%;
+        margin-top: 15px;
+            input{
+                font-size: 30px;
+                width: 100%;
+                height: 50px;
+                border: none;
+                border-radius: 6px;
+            }
+        }
+}

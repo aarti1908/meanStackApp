@@ -1,0 +1,12 @@
+This projects has following implementations :
+
+1. Error Handling | Client Side
+2. Error Handling | Server Side
+    - try/catch
+    - Error Service
+    - HttpInterceptor 
+    - ErrorHandler
+    - Notification
+    - Logging
+    
+

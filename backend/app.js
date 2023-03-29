@@ -2,9 +2,36 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const User = require("./models/user");
+const userRoutes = require("./routes/user");
+const { WebSocketServer } = require('ws')
+
+const sockserver = new WebSocketServer({ port: 443 })
 
 const app = express();
 mongoose.set("strictQuery", false);
+
+
+sockserver.on('connection', ws => {
+  console.log('New client connected!');
+  ws.send('Connection Successfull!');
+  let message = 'connection established';
+  setInterval(() => {
+    ws.send(message);
+  }, 1000);
+  
+  ws.on('close', () => console.log('Client has disconnected!'));
+  ws.on('message', data => {
+    sockserver.clients.forEach(client => {
+      console.log(`distributing message: ${data}`)
+      message = `${data}`;
+    })
+  })
+  ws.onerror = function () {
+    console.log('websocket error')
+  }
+ })
+
+
 //9jbMoGTgcqXuUoOW
 mongoose
   .connect(
@@ -24,7 +51,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -90,4 +117,6 @@ app.put("/api/users/:id", (req, res, next) => {
   });
 });
 
+
+app.use('/api/user', userRoutes)
 module.exports = app;
